@@ -21,7 +21,6 @@ public class PosMachine {
         LinkedList<Item> items = new LinkedList<Item>();
         List<ItemInfo> itemInfo = loadAllItemsInfo();
         barcodes = new ArrayList<>(new LinkedHashSet<>(barcodes));
-
         for (String barcode : barcodes) {
             Item itemValue = new Item();
             for (ItemInfo itemInfoVal : itemInfo) {
