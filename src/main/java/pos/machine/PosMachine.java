@@ -36,4 +36,29 @@ public class PosMachine {
         return items;
     }
 
+    private List<Item> calculateItemsSubtotal(List<Item> itemsList) {
+        for(Item itemValue : itemsList)
+        {
+            itemValue.setSubTotal(itemValue.getQuantity()*itemValue.getPriceUnit());
+        }
+        return itemsList;
+    }
+
+    private int calculatePriceTotal(List<Item> itemsList) {
+        int priceTotal = 0;
+        for(Item itemValue : itemsList)
+        {
+            priceTotal += itemValue.getSubTotal();
+        }
+        return priceTotal;
+    }
+
+    private GenerateReceipt calculateReceipt(List<Item> itemsList) {
+        GenerateReceipt receipt = new GenerateReceipt();
+        receipt.setItemList(calculateItemsSubtotal(itemsList));
+        receipt.setPriceTotal(calculatePriceTotal(itemsList));
+
+        return receipt;
+    }
+
 }
