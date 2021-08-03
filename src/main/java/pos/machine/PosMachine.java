@@ -9,6 +9,14 @@ public class PosMachine {
         return generateReceipt(receipt);
     }
 
+    private List<ItemInfo> loadAllItemsInfo(){
+        return ItemDataLoader.loadAllItemInfos();
+    }
 
+    private int retrieveItemCount(String currentItemBarcode) {
+        return Collections.frequency(ItemDataLoader.loadBarcodes(), currentItemBarcode);
+    }
+
+ 
 
 }
